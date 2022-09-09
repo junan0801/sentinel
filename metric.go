@@ -18,6 +18,7 @@ type Data struct {
 }
 
 func main() {
+
 	registry := prometheus.NewRegistry()
 	queueLength := prometheus.NewGaugeVec(prometheus.GaugeOpts{
 		//以下两个参数会组合成 monitoring_demo_sentinel
@@ -31,34 +32,29 @@ func main() {
 	}, []string{"ip", "app", "machinename"})
 
 	url := "http://g-sentinel-dashboard.tope365.com/custom/metric/get"
+	//for range time.Tick(10 * time.Second) {
+
 	resp, _ := http.Get(url)
 	// 因为json 数据key 不固定,使用map 获取
 	dataMap := make(map[string][]Data)
+	//for range time.Tick(1 * time.Second) {
 	body, _ := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
 	json.Unmarshal([]byte(body), &dataMap)
 	fmt.Printf("获取到的数据类型是%T", dataMap)
-	//m := make(map[string]string)
+	fmt.Println(dataMap)
 	for _, v := range dataMap {
-		//log.Printf(`%v`, v)
 		for _, v1 := range v {
 			ip := v1.IP
 			app := v1.App
 			successqps := v1.SuccessQps
 			machinename := v1.MachineName
-			/*			m["ip"] = ip
-						m["app"] = app
-						m["successqps"] = strconv.Itoa(successqps)
-						m["machinename"] = machinename*/
-			//fmt.Println(m)
-			//fmt.Println(v1.IP, v1)
 			queueLength.WithLabelValues(ip, app, machinename).Set(successqps)
 		}
-
 	}
-	//queueLength.WithLabelValues("127.0.0.1", "11", "TESTMACHINE").Set(100)
-
+	//}
 	registry.MustRegister(queueLength)
 	http.Handle("/metrics", promhttp.HandlerFor(registry, promhttp.HandlerOpts{Registry: registry}))
 	http.ListenAndServe(":8050", nil)
+
 }
