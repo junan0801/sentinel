@@ -1,0 +1,1154 @@
+{
+  "tope-auth-v2": [{
+    "ip": "172.20.15.84",
+    "port": 8719,
+    "app": "tope-auth-v2",
+    "machineName": "tope-auth-v2-7798858b9c-lfm4r",
+    "passQps": 43,
+    "blockQps": 0,
+    "successQps": 43,
+    "exceptionQps": 0,
+    "timestamp": 1662601061000,
+    "resourceDetails": {
+      "/oauth/check_token": {
+        "resource": "/oauth/check_token",
+        "passQps": 43,
+        "blockQps": 0,
+        "successQps": 43,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.28.104",
+    "port": 8719,
+    "app": "tope-auth-v2",
+    "machineName": "tope-auth-v2-7798858b9c-s8vhx",
+    "passQps": 45,
+    "blockQps": 0,
+    "successQps": 46,
+    "exceptionQps": 0,
+    "timestamp": 1662601067000,
+    "resourceDetails": {
+      "/oauth/check_token": {
+        "resource": "/oauth/check_token",
+        "passQps": 44,
+        "blockQps": 0,
+        "successQps": 45,
+        "exceptionQps": 0
+      },
+      "/token/login": {
+        "resource": "/token/login",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.31.231",
+    "port": 8719,
+    "app": "tope-auth-v2",
+    "machineName": "tope-auth-v2-7798858b9c-nrs4k",
+    "passQps": 49,
+    "blockQps": 0,
+    "successQps": 48,
+    "exceptionQps": 0,
+    "timestamp": 1662601066000,
+    "resourceDetails": {
+      "/oauth/check_token": {
+        "resource": "/oauth/check_token",
+        "passQps": 49,
+        "blockQps": 0,
+        "successQps": 48,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.42.106",
+    "port": 8719,
+    "app": "tope-auth-v2",
+    "machineName": "tope-auth-v2-7798858b9c-76gt5",
+    "passQps": 41,
+    "blockQps": 0,
+    "successQps": 41,
+    "exceptionQps": 0,
+    "timestamp": 1662601067000,
+    "resourceDetails": {
+      "/oauth/check_token": {
+        "resource": "/oauth/check_token",
+        "passQps": 41,
+        "blockQps": 0,
+        "successQps": 41,
+        "exceptionQps": 0
+      }
+    }
+  }],
+
+
+
+  "tope-friend-admin-v2": [{
+    "ip": "172.20.37.222",
+    "port": 8719,
+    "app": "tope-friend-admin-v2",
+    "machineName": "tope-friend-admin-5b5b844cb4-qrsd2",
+    "passQps": 1,
+    "blockQps": 0,
+    "successQps": 1,
+    "exceptionQps": 0,
+    "timestamp": 1662601065000,
+    "resourceDetails": {
+      "/friend/listFriendRelation": {
+        "resource": "/friend/listFriendRelation",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.19.201",
+    "port": 8719,
+    "app": "tope-friend-admin-v2",
+    "machineName": "tope-friend-admin-5b5b844cb4-57ssp",
+    "passQps": 3,
+    "blockQps": 0,
+    "successQps": 3,
+    "exceptionQps": 0,
+    "timestamp": 1662601065000,
+    "resourceDetails": {
+      "/friend/unFollow": {
+        "resource": "/friend/unFollow",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      },
+      "/friend/listFriendRelation": {
+        "resource": "/friend/listFriendRelation",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.28.250",
+    "port": 8719,
+    "app": "tope-friend-admin-v2",
+    "machineName": "tope-friend-admin-5b5b844cb4-zpvdd",
+    "passQps": 1,
+    "blockQps": 0,
+    "successQps": 1,
+    "exceptionQps": 0,
+    "timestamp": 1662601061000,
+    "resourceDetails": {
+      "/feed/listPrivateFeeds": {
+        "resource": "/feed/listPrivateFeeds",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.43.38",
+    "port": 8719,
+    "app": "tope-friend-admin-v2",
+    "machineName": "tope-friend-admin-5b5b844cb4-l68rf",
+    "passQps": 2,
+    "blockQps": 0,
+    "successQps": 2,
+    "exceptionQps": 0,
+    "timestamp": 1662601066000,
+    "resourceDetails": {
+      "/health": {
+        "resource": "/health",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/feed/listPrivateFeeds": {
+        "resource": "/feed/listPrivateFeeds",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.36.82",
+    "port": 8719,
+    "app": "tope-friend-admin-v2",
+    "machineName": "tope-friend-admin-5b5b844cb4-bnl58",
+    "passQps": 2,
+    "blockQps": 0,
+    "successQps": 2,
+    "exceptionQps": 0,
+    "timestamp": 1662601066000,
+    "resourceDetails": {
+      "/health": {
+        "resource": "/health",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/friend/listFriendRelation": {
+        "resource": "/friend/listFriendRelation",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }],
+  "tope-netty-cloud": [{
+    "ip": "172.20.35.45",
+    "port": 8722,
+    "app": "tope-netty-cloud",
+    "machineName": "tope-netty-cloud-86db44d4b4-p9qf8",
+    "passQps": 4,
+    "blockQps": 0,
+    "successQps": 4,
+    "exceptionQps": 0,
+    "timestamp": 1662601060000,
+    "resourceDetails": {
+      "/api/node/heartbeat": {
+        "resource": "/api/node/heartbeat",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      },
+      "/api/nameserver/server/list": {
+        "resource": "/api/nameserver/server/list",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.28.215",
+    "port": 8722,
+    "app": "tope-netty-cloud",
+    "machineName": "tope-netty-cloud-86db44d4b4-852kk",
+    "passQps": 1,
+    "blockQps": 0,
+    "successQps": 1,
+    "exceptionQps": 0,
+    "timestamp": 1662601058000,
+    "resourceDetails": {
+      "/api/nameserver/server/list": {
+        "resource": "/api/nameserver/server/list",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }],
+  "tope-common-business-web": [{
+    "ip": "172.20.24.16",
+    "port": 8719,
+    "app": "tope-common-business-web",
+    "machineName": "tope-common-business-web-6774864688-tkkxl",
+    "passQps": 2,
+    "blockQps": 0,
+    "successQps": 2,
+    "exceptionQps": 0,
+    "timestamp": 1662601061000,
+    "resourceDetails": {
+      "/health": {
+        "resource": "/health",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/strategy/feign/filterAppsByStrategy": {
+        "resource": "/strategy/feign/filterAppsByStrategy",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.42.232",
+    "port": 8719,
+    "app": "tope-common-business-web",
+    "machineName": "tope-common-business-web-6774864688-zqpr8",
+    "passQps": 2,
+    "blockQps": 0,
+    "successQps": 2,
+    "exceptionQps": 0,
+    "timestamp": 1662601060000,
+    "resourceDetails": {
+      "/health": {
+        "resource": "/health",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/strategy/feign/filterAppsByStrategy": {
+        "resource": "/strategy/feign/filterAppsByStrategy",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }],
+  "tope-user-center-v2-admin": [{
+    "ip": "172.20.43.187",
+    "port": 8719,
+    "app": "tope-user-center-v2-admin",
+    "machineName": "tope-user-center-v2-57c8858687-6ttbk",
+    "passQps": 50,
+    "blockQps": 0,
+    "successQps": 50,
+    "exceptionQps": 0,
+    "timestamp": 1662601060000,
+    "resourceDetails": {
+      "/version/check": {
+        "resource": "/version/check",
+        "passQps": 27,
+        "blockQps": 0,
+        "successQps": 27,
+        "exceptionQps": 0
+      },
+      "/business-user/getId": {
+        "resource": "/business-user/getId",
+        "passQps": 6,
+        "blockQps": 0,
+        "successQps": 6,
+        "exceptionQps": 0
+      },
+      "/version/check/v2": {
+        "resource": "/version/check/v2",
+        "passQps": 8,
+        "blockQps": 0,
+        "successQps": 8,
+        "exceptionQps": 0
+      },
+      "/baseUserGlobalMsg/getBaseUserMsgByUiddAndLoginType": {
+        "resource": "/baseUserGlobalMsg/getBaseUserMsgByUiddAndLoginType",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/business-user/{id}": {
+        "resource": "/business-user/{id}",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      },
+      "/user-product/{id}": {
+        "resource": "/user-product/{id}",
+        "passQps": 5,
+        "blockQps": 0,
+        "successQps": 5,
+        "exceptionQps": 0
+      },
+      "/user-country/{id}": {
+        "resource": "/user-country/{id}",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.42.251",
+    "port": 8719,
+    "app": "tope-user-center-v2-admin",
+    "machineName": "tope-user-center-v2-57c8858687-jkv2m",
+    "passQps": 44,
+    "blockQps": 0,
+    "successQps": 45,
+    "exceptionQps": 0,
+    "timestamp": 1662601059000,
+    "resourceDetails": {
+      "/user-product/getUserProductInfoV2ByBusinessId": {
+        "resource": "/user-product/getUserProductInfoV2ByBusinessId",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/version/check": {
+        "resource": "/version/check",
+        "passQps": 20,
+        "blockQps": 0,
+        "successQps": 20,
+        "exceptionQps": 0
+      },
+      "/version/check/v2": {
+        "resource": "/version/check/v2",
+        "passQps": 7,
+        "blockQps": 0,
+        "successQps": 8,
+        "exceptionQps": 0
+      },
+      "/business-user/getId": {
+        "resource": "/business-user/getId",
+        "passQps": 4,
+        "blockQps": 0,
+        "successQps": 4,
+        "exceptionQps": 0
+      },
+      "/user-agreement/{userId}": {
+        "resource": "/user-agreement/{userId}",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/user-product/getUserProductInfoV2ByUserId": {
+        "resource": "/user-product/getUserProductInfoV2ByUserId",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      },
+      "/business-user/{id}": {
+        "resource": "/business-user/{id}",
+        "passQps": 3,
+        "blockQps": 0,
+        "successQps": 3,
+        "exceptionQps": 0
+      },
+      "/user-product/{id}": {
+        "resource": "/user-product/{id}",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/user-country/{id}": {
+        "resource": "/user-country/{id}",
+        "passQps": 5,
+        "blockQps": 0,
+        "successQps": 5,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.55.164",
+    "port": 8719,
+    "app": "tope-user-center-v2-admin",
+    "machineName": "tope-user-center-v2-57c8858687-xsnpp",
+    "passQps": 47,
+    "blockQps": 0,
+    "successQps": 47,
+    "exceptionQps": 0,
+    "timestamp": 1662601064000,
+    "resourceDetails": {
+      "/version/check": {
+        "resource": "/version/check",
+        "passQps": 29,
+        "blockQps": 0,
+        "successQps": 30,
+        "exceptionQps": 0
+      },
+      "/version/check/v2": {
+        "resource": "/version/check/v2",
+        "passQps": 7,
+        "blockQps": 0,
+        "successQps": 7,
+        "exceptionQps": 0
+      },
+      "/business-user/getId": {
+        "resource": "/business-user/getId",
+        "passQps": 5,
+        "blockQps": 0,
+        "successQps": 5,
+        "exceptionQps": 0
+      },
+      "/user-product/getUserProductInfoV2ByUserId": {
+        "resource": "/user-product/getUserProductInfoV2ByUserId",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/loginInByUserId": {
+        "resource": "/loginInByUserId",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 0,
+        "exceptionQps": 0
+      },
+      "/user-product/{id}": {
+        "resource": "/user-product/{id}",
+        "passQps": 3,
+        "blockQps": 0,
+        "successQps": 3,
+        "exceptionQps": 0
+      },
+      "/user-country/{id}": {
+        "resource": "/user-country/{id}",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.6.27",
+    "port": 8719,
+    "app": "tope-user-center-v2-admin",
+    "machineName": "tope-user-center-v2-57c8858687-ddzb6",
+    "passQps": 37,
+    "blockQps": 0,
+    "successQps": 37,
+    "exceptionQps": 0,
+    "timestamp": 1662601064000,
+    "resourceDetails": {
+      "/business-user/getUserListByIds": {
+        "resource": "/business-user/getUserListByIds",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/version/check": {
+        "resource": "/version/check",
+        "passQps": 24,
+        "blockQps": 0,
+        "successQps": 24,
+        "exceptionQps": 0
+      },
+      "/business-user/getId": {
+        "resource": "/business-user/getId",
+        "passQps": 3,
+        "blockQps": 0,
+        "successQps": 3,
+        "exceptionQps": 0
+      },
+      "/version/check/v2": {
+        "resource": "/version/check/v2",
+        "passQps": 4,
+        "blockQps": 0,
+        "successQps": 4,
+        "exceptionQps": 0
+      },
+      "/user-product/getUserProductInfoV2ByUserId": {
+        "resource": "/user-product/getUserProductInfoV2ByUserId",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/business-user/{id}": {
+        "resource": "/business-user/{id}",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      },
+      "/user-country/{id}": {
+        "resource": "/user-country/{id}",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.28.185",
+    "port": 8719,
+    "app": "tope-user-center-v2-admin",
+    "machineName": "tope-user-center-v2-57c8858687-p2492",
+    "passQps": 55,
+    "blockQps": 0,
+    "successQps": 55,
+    "exceptionQps": 0,
+    "timestamp": 1662601065000,
+    "resourceDetails": {
+      "/business-user/getUserListByIds": {
+        "resource": "/business-user/getUserListByIds",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      },
+      "/version/check": {
+        "resource": "/version/check",
+        "passQps": 23,
+        "blockQps": 0,
+        "successQps": 23,
+        "exceptionQps": 0
+      },
+      "/version/check/v2": {
+        "resource": "/version/check/v2",
+        "passQps": 7,
+        "blockQps": 0,
+        "successQps": 7,
+        "exceptionQps": 0
+      },
+      "/business-user/getId": {
+        "resource": "/business-user/getId",
+        "passQps": 9,
+        "blockQps": 0,
+        "successQps": 9,
+        "exceptionQps": 0
+      },
+      "/user-product/getUserProductInfoV2ByUserId": {
+        "resource": "/user-product/getUserProductInfoV2ByUserId",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      },
+      "/loginInByUserId": {
+        "resource": "/loginInByUserId",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/business-user/{id}": {
+        "resource": "/business-user/{id}",
+        "passQps": 5,
+        "blockQps": 0,
+        "successQps": 5,
+        "exceptionQps": 0
+      },
+      "/baseUserGlobalMsg/getBaseUserMsgById/{snowUserId}": {
+        "resource": "/baseUserGlobalMsg/getBaseUserMsgById/{snowUserId}",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/user-product/{id}": {
+        "resource": "/user-product/{id}",
+        "passQps": 3,
+        "blockQps": 0,
+        "successQps": 3,
+        "exceptionQps": 0
+      },
+      "/user-insure/{id}/{appId}": {
+        "resource": "/user-insure/{id}/{appId}",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "/user-country/{id}": {
+        "resource": "/user-country/{id}",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }],
+  "general-tope-gateway": [{
+    "ip": "172.20.43.143",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-qqhj5",
+    "passQps": 13,
+    "blockQps": 0,
+    "successQps": 12,
+    "exceptionQps": 0,
+    "timestamp": 1662601060000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 4,
+        "blockQps": 0,
+        "successQps": 4,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 8,
+        "blockQps": 0,
+        "successQps": 7,
+        "exceptionQps": 0
+      },
+      "tope-access-control-admin": {
+        "resource": "tope-access-control-admin",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.6.101",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-l6928",
+    "passQps": 27,
+    "blockQps": 0,
+    "successQps": 27,
+    "exceptionQps": 0,
+    "timestamp": 1662601063000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 25,
+        "blockQps": 0,
+        "successQps": 25,
+        "exceptionQps": 0
+      },
+      "tope-access-control-admin": {
+        "resource": "tope-access-control-admin",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.28.98",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-67cvz",
+    "passQps": 25,
+    "blockQps": 0,
+    "successQps": 25,
+    "exceptionQps": 0,
+    "timestamp": 1662601062000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "tope-friend-admin-v2": {
+        "resource": "tope-friend-admin-v2",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 21,
+        "blockQps": 0,
+        "successQps": 21,
+        "exceptionQps": 0
+      },
+      "tope-access-control-admin": {
+        "resource": "tope-access-control-admin",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.6.174",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-gtg2r",
+    "passQps": 14,
+    "blockQps": 0,
+    "successQps": 14,
+    "exceptionQps": 0,
+    "timestamp": 1662601060000,
+    "resourceDetails": {
+      "tope-friend-admin-v2": {
+        "resource": "tope-friend-admin-v2",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 13,
+        "blockQps": 0,
+        "successQps": 13,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.31.226",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-jthjw",
+    "passQps": 23,
+    "blockQps": 0,
+    "successQps": 23,
+    "exceptionQps": 0,
+    "timestamp": 1662601060000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 3,
+        "blockQps": 0,
+        "successQps": 3,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 20,
+        "blockQps": 0,
+        "successQps": 20,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.4.208",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-t4jmm",
+    "passQps": 15,
+    "blockQps": 0,
+    "successQps": 15,
+    "exceptionQps": 0,
+    "timestamp": 1662601063000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 4,
+        "blockQps": 0,
+        "successQps": 4,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 11,
+        "blockQps": 0,
+        "successQps": 11,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.3.79",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-8v7jb",
+    "passQps": 21,
+    "blockQps": 0,
+    "successQps": 21,
+    "exceptionQps": 0,
+    "timestamp": 1662601066000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 3,
+        "blockQps": 0,
+        "successQps": 3,
+        "exceptionQps": 0
+      },
+      "tope-uid-admin-v2": {
+        "resource": "tope-uid-admin-v2",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 15,
+        "blockQps": 0,
+        "successQps": 15,
+        "exceptionQps": 0
+      },
+      "tope-access-control-admin": {
+        "resource": "tope-access-control-admin",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.6.53",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-tf9kb",
+    "passQps": 26,
+    "blockQps": 0,
+    "successQps": 27,
+    "exceptionQps": 0,
+    "timestamp": 1662601060000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 11,
+        "blockQps": 0,
+        "successQps": 11,
+        "exceptionQps": 0
+      },
+      "tope-friend-admin-v2": {
+        "resource": "tope-friend-admin-v2",
+        "passQps": 3,
+        "blockQps": 0,
+        "successQps": 3,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 11,
+        "blockQps": 0,
+        "successQps": 12,
+        "exceptionQps": 0
+      },
+      "tope-access-control-admin": {
+        "resource": "tope-access-control-admin",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.34.19",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-ql6rf",
+    "passQps": 12,
+    "blockQps": 0,
+    "successQps": 12,
+    "exceptionQps": 0,
+    "timestamp": 1662601061000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 3,
+        "blockQps": 0,
+        "successQps": 3,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 9,
+        "blockQps": 0,
+        "successQps": 9,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.42.187",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-865jt",
+    "passQps": 18,
+    "blockQps": 0,
+    "successQps": 18,
+    "exceptionQps": 0,
+    "timestamp": 1662601066000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 3,
+        "blockQps": 0,
+        "successQps": 3,
+        "exceptionQps": 0
+      },
+      "tope-friend-admin-v2": {
+        "resource": "tope-friend-admin-v2",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 14,
+        "blockQps": 0,
+        "successQps": 14,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.39.75",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-f6jrt",
+    "passQps": 13,
+    "blockQps": 0,
+    "successQps": 14,
+    "exceptionQps": 0,
+    "timestamp": 1662601065000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 0,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 13,
+        "blockQps": 0,
+        "successQps": 13,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.24.57",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-zdjzp",
+    "passQps": 16,
+    "blockQps": 0,
+    "successQps": 17,
+    "exceptionQps": 0,
+    "timestamp": 1662601064000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 4,
+        "blockQps": 0,
+        "successQps": 4,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 12,
+        "blockQps": 0,
+        "successQps": 13,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.39.175",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-28sdm",
+    "passQps": 17,
+    "blockQps": 0,
+    "successQps": 17,
+    "exceptionQps": 0,
+    "timestamp": 1662601060000,
+    "resourceDetails": {
+      "tope-friend-admin-v2": {
+        "resource": "tope-friend-admin-v2",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 16,
+        "blockQps": 0,
+        "successQps": 16,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.32.93",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-z5sbn",
+    "passQps": 21,
+    "blockQps": 0,
+    "successQps": 21,
+    "exceptionQps": 0,
+    "timestamp": 1662601065000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 5,
+        "blockQps": 0,
+        "successQps": 5,
+        "exceptionQps": 0
+      },
+      "tope-friend-admin-v2": {
+        "resource": "tope-friend-admin-v2",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 12,
+        "blockQps": 0,
+        "successQps": 12,
+        "exceptionQps": 0
+      },
+      "tope-access-control-admin": {
+        "resource": "tope-access-control-admin",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.58.161",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-7dr54",
+    "passQps": 12,
+    "blockQps": 0,
+    "successQps": 12,
+    "exceptionQps": 0,
+    "timestamp": 1662601063000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 10,
+        "blockQps": 0,
+        "successQps": 11,
+        "exceptionQps": 0
+      }
+    }
+  }, {
+    "ip": "172.20.29.150",
+    "port": 8719,
+    "app": "general-tope-gateway",
+    "machineName": "general-tope-gateway-6578ccfcfb-bbkwj",
+    "passQps": 17,
+    "blockQps": 0,
+    "successQps": 17,
+    "exceptionQps": 0,
+    "timestamp": 1662601062000,
+    "resourceDetails": {
+      "tope-auth-v2": {
+        "resource": "tope-auth-v2",
+        "passQps": 2,
+        "blockQps": 0,
+        "successQps": 2,
+        "exceptionQps": 0
+      },
+      "tope-user-center-v2-admin": {
+        "resource": "tope-user-center-v2-admin",
+        "passQps": 14,
+        "blockQps": 0,
+        "successQps": 14,
+        "exceptionQps": 0
+      },
+      "tope-access-control-admin": {
+        "resource": "tope-access-control-admin",
+        "passQps": 1,
+        "blockQps": 0,
+        "successQps": 1,
+        "exceptionQps": 0
+      }
+    }
+  }]
+}
