@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"strconv"
 )
 
 //定义api接口数据结构和序列化json字段
@@ -29,7 +28,7 @@ type Employee struct {
 	MESSGAE string        `json:"messgae"`
 }*/
 
-type Data struct {
+type Data1 struct {
 	IP          string `json:"ip"`
 	App         string `json:"app"`
 	SuccessQps  int    `json:"successQps"`
@@ -90,32 +89,32 @@ func main() {
 	resp.Body.Close()
 	json.Unmarshal([]byte(body), &dataMap)
 	fmt.Printf("获取到的数据类型是%T", dataMap)
-	m := make(map[string]string)
-	for _, v := range dataMap {
-		//log.Printf(`%v`, v)
-		for _, v1 := range v {
-			ip := v1.IP
-			app := v1.App
-			successqps := v1.SuccessQps
-			machinename := v1.MachineName
-			m["ip"] = ip
-			m["app"] = app
-			m["successqps"] = strconv.Itoa(successqps)
-			m["machinename"] = machinename
-			fmt.Println(m)
-			//fmt.Println(v1.IP, v1)
-		}
-
-		//m[string(k1)] = int(v1)
-		//log.Printf("%v,%+v", k1, v1)
-		//fmt.Printf("%T %T %T", k1, v1, m)
-		//fmt.Println()
-		//time.Sleep(100)*/
-		//fmt.Printf("%T", v)
-
-		//first := v.Data[0]
-		//fmt.Println(first.IP)
-
-	}
+	//m := make(map[string]string)
+	//for _, v := range dataMap {
+	//	//log.Printf(`%v`, v)
+	//	for _, v1 := range v {
+	//		//ip := v1.IP
+	//		//app := v1.App
+	//		//successqps := v1.SuccessQps
+	//		//machinename := v1.MachineName
+	//		//m["ip"] = ip
+	//		//m["app"] = app
+	//		//m["successqps"] = successqps
+	//		//m["machinename"] = machinename
+	//		//fmt.Println(m)
+	//		//fmt.Println(v1.IP, v1)
+	//	}
+	//
+	//	//m[string(k1)] = int(v1)
+	//	//log.Printf("%v,%+v", k1, v1)
+	//	//fmt.Printf("%T %T %T", k1, v1, m)
+	//	//fmt.Println()
+	//	//time.Sleep(100)*/
+	//	//fmt.Printf("%T", v)
+	//
+	//	//first := v.Data[0]
+	//	//fmt.Println(first.IP)
+	//
+	//}
 
 }
