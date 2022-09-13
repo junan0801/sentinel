@@ -95,56 +95,114 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 )
 
-type Data2 struct {
+type Data struct {
 	// json 转struct  必须以大写字母开头,否者会被忽略,数据类型也要设置正确,否者会取不到值
-	IP          string  `json:"ip"`
-	App         string  `json:"app"`
-	SuccessQps  float64 `json:"successQps"`
-	MachineName string  `json:"machineName"`
+	IP           string  `json:"ip"`
+	Port         int     `json:"port"`
+	App          string  `json:"app"`
+	MachineName  string  `json:"machineName"`
+	SuccessQps   float64 `json:"successQps"`
+	PassQps      float64 `json:"passQps"`
+	BlockQps     float64 `json:"blockQps"`
+	ExceptionQps float64 `json:"exceptionQps"`
 }
 
 type fooCollector struct {
 	fooMetric *prometheus.Desc
-	barMetric *prometheus.Desc
 }
 
 func newFoolCollector() *fooCollector {
 	m1 := make(map[string]string)
 	m1["env"] = "prod"
-	v := []string{"ip", "app", "machineName"}
+	v := []string{"ip", "port", "app", "machineName"}
 	return &fooCollector{
-		fooMetric: prometheus.NewDesc("FF_METRICS", "SHOW metrics a for", nil, nil),
-		barMetric: prometheus.NewDesc("sentinel", "successqps of app from sentinel", v, m1),
+		fooMetric: prometheus.NewDesc("sentinel", "successqps of app from sentinel", v, m1),
 	}
 
 }
+
+//定义获取数据函数
+func getMetric(url string) (mp map[string][]Data) {
+
+	//url := "http://g-sentinel-dashboard.tope365.com/custom/metric/get"
+	resp, _ := http.Get(url)
+	// 因为json 数据key 不固定,使用map 获取
+	dataMap := make(map[string][]Data)
+	//for range time.Tick(1 * time.Second) {
+	body, _ := ioutil.ReadAll(resp.Body)
+	resp.Body.Close()
+	json.Unmarshal([]byte(body), &dataMap)
+	fmt.Printf("获取到的数据类型是%T", dataMap)
+	//fmt.Println(dataMap)
+	return dataMap
+
+}
 func (collect *fooCollector) Describe(ch chan<- *prometheus.Desc) {
-	ch <- collect.barMetric
 	ch <- collect.fooMetric
 
 }
 func (collect *fooCollector) Collect(ch chan<- prometheus.Metric) {
 	url := "http://g-sentinel-dashboard.tope365.com/custom/metric/get"
-	resp, _ := http.Get(url)
-	// 因为json 数据key 不固定,使用map 获取
-	dataMap := make(map[string][]Data2)
-	//for range time.Tick(1 * time.Second) {
-	body, _ := ioutil.ReadAll(resp.Body)
-	resp.Body.Close()
-	json.Unmarshal([]byte(body), &dataMap)
-	fmt.Printf("获取到的数据类型是%T\t", dataMap)
-	//fmt.Println(dataMap)
-	for _, v := range dataMap {
+	mp := getMetric(url)
+	for _, v := range mp {
 		for _, v1 := range v {
 			ip := v1.IP
+			port := strconv.Itoa(v1.Port)
 			app := v1.App
-			//successqps := strconv.FormatFloat(v1.SuccessQps, 'g', 2, 32)
-			successqps := v1.SuccessQps
 			machinename := v1.MachineName
-			fmt.Println(ip, app, successqps, machinename)
-			ch <- prometheus.MustNewConstMetric(collect.barMetric, prometheus.GaugeValue, successqps, ip, app, machinename)
+			successqps := v1.SuccessQps
+			passqps := v1.PassQps
+			blockqps := v1.BlockQps
+			exceptionqps := v1.ExceptionQps
+			fmt.Println(ip, app, machinename, successqps, passqps, blockqps, exceptionqps)
+			ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, successqps, ip, port, app, machinename)
+			//ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, passqps, ip, port, app, machinename)
+			//ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, blockqps, ip, port, app, machinename)
+			//ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, exceptionqps, ip, port, app, machinename)
+		}
+	}
+
+}
+
+type passqpsCollector struct {
+	fooMetric *prometheus.Desc
+}
+
+func newPassqpsCollector() *passqpsCollector {
+	m1 := make(map[string]string)
+	m1["env"] = "prod"
+	v := []string{"ip", "port", "app", "machineName"}
+	return &passqpsCollector{
+		fooMetric: prometheus.NewDesc("passqps", "passqps of app from sentinel", v, m1),
+	}
+
+}
+
+func (collect *passqpsCollector) Describe(ch chan<- *prometheus.Desc) {
+	ch <- collect.fooMetric
+
+}
+func (collect *passqpsCollector) Collect(ch chan<- prometheus.Metric) {
+	url := "http://g-sentinel-dashboard.tope365.com/custom/metric/get"
+	mp := getMetric(url)
+	for _, v := range mp {
+		for _, v1 := range v {
+			ip := v1.IP
+			port := strconv.Itoa(v1.Port)
+			app := v1.App
+			machinename := v1.MachineName
+			successqps := v1.SuccessQps
+			passqps := v1.PassQps
+			blockqps := v1.BlockQps
+			exceptionqps := v1.ExceptionQps
+			fmt.Println(ip, app, machinename, successqps, passqps, blockqps, exceptionqps)
+			//ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, successqps, ip, port, app, machinename)
+			ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, passqps, ip, port, app, machinename)
+			//ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, blockqps, ip, port, app, machinename)
+			//ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, exceptionqps, ip, port, app, machinename)
 		}
 	}
 
@@ -152,6 +210,9 @@ func (collect *fooCollector) Collect(ch chan<- prometheus.Metric) {
 func main() {
 	foo := newFoolCollector()
 	prometheus.MustRegister(foo)
+	passqpsR := newPassqpsCollector()
+	prometheus.MustRegister(passqpsR)
+
 	http.Handle("/metrics", promhttp.Handler())
 	http.ListenAndServe(":18080", nil)
 }

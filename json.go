@@ -84,7 +84,7 @@ func main() {
 	url := "http://g-sentinel-dashboard.tope365.com/custom/metric/get"
 	resp, _ := http.Get(url)
 	// 因为json 数据key 不固定,使用map 获取
-	dataMap := make(map[string][]Data)
+	dataMap := make(map[string][]Data1)
 	body, _ := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
 	json.Unmarshal([]byte(body), &dataMap)
