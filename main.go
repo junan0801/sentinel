@@ -79,8 +79,6 @@ func (collect *successqpsCollector) Collect(ch chan<- prometheus.Metric) {
 			for _, v2 := range v1.ResourceDetails {
 				resource := v2.Resource
 				successqps := v2.SuccessQPS
-				//success := v2.SuccessQPS
-				//s := strconv.FormatFloat(success,'g',5, 32)
 				fmt.Println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
 				fmt.Printf("ip %s\t port %s\t machinename %s\t  app %s\t  r %s\t   s%d\t ", ip, port, machinename, app, resource, successqps)
 				ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, successqps, ip, port, app, machinename, resource)
@@ -90,78 +88,96 @@ func (collect *successqpsCollector) Collect(ch chan<- prometheus.Metric) {
 }
 
 type passqpsCollector struct {
-	fooMetric *prometheus.Desc
+	passMetric *prometheus.Desc
 }
 
 func newPassqpsCollector() *passqpsCollector {
 	m1 := make(map[string]string)
 	m1["env"] = "prod"
-	v := []string{"ip", "port", "app", "machineName"}
+	v := []string{"ip", "port", "app", "machineName", "interface"}
 	return &passqpsCollector{
-		fooMetric: prometheus.NewDesc("passqps", "passqps of app from sentinel", v, m1),
+		passMetric: prometheus.NewDesc("passqps", "passqps of app from sentinel", v, m1),
 	}
 }
 
 func (collect *passqpsCollector) Describe(ch chan<- *prometheus.Desc) {
-	ch <- collect.fooMetric
+	ch <- collect.passMetric
 }
 
 func (collect *passqpsCollector) Collect(ch chan<- prometheus.Metric) {
 	//url := "http://g-sentinel-dashboard.tope365.com/custom/metric/get"
 	mp := getMetric()
 	for _, v := range mp {
+		//第二个循环取出数据详细信息
 		for _, v1 := range v {
 			ip := v1.IP
 			port := strconv.Itoa(v1.Port)
 			app := v1.App
-
 			machinename := v1.MachineName
-			passqps := v1.PassQps
-			fmt.Println(ip, app, machinename, passqps)
-			ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, passqps, ip, port, app, machinename)
+			fmt.Println("aaaaaaaaaaaaaaaaaaaaaa")
+			fmt.Println(v1)
+			fmt.Println("111111111111111111111111")
+			fmt.Println(v1.ResourceDetails)
+			//第三个循环取出resource里面的数据
+			for _, v2 := range v1.ResourceDetails {
+				resource := v2.Resource
+				passqps := v2.PassQPS
+				fmt.Println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+				fmt.Printf("ip %s\t port %s\t machinename %s\t  app %s\t  r %s\t   s%d\t ", ip, port, machinename, app, resource, passqps)
+				ch <- prometheus.MustNewConstMetric(collect.passMetric, prometheus.GaugeValue, passqps, ip, port, app, machinename, resource)
+			}
 		}
 	}
 }
 
 type blockqpsCollector struct {
-	fooMetric *prometheus.Desc
+	blockMetric *prometheus.Desc
 }
 
 func newBlockqpsCollector() *blockqpsCollector {
 	m1 := make(map[string]string)
 	m1["env"] = "prod"
-	v := []string{"ip", "port", "app", "machineName"}
+	v := []string{"ip", "port", "app", "machineName", "interface"}
 	return &blockqpsCollector{
-		fooMetric: prometheus.NewDesc("blockqps", "blockqps of app from sentinel", v, m1),
+		blockMetric: prometheus.NewDesc("blockqps", "blockqps of app from sentinel", v, m1),
 	}
 }
 
 func (collect *blockqpsCollector) Describe(ch chan<- *prometheus.Desc) {
-	ch <- collect.fooMetric
+	ch <- collect.blockMetric
 
 }
 func (collect *blockqpsCollector) Collect(ch chan<- prometheus.Metric) {
 	//url := "http://g-sentinel-dashboard.tope365.com/custom/metric/get"
 	mp := getMetric()
 	for _, v := range mp {
+		//第二个循环取出数据详细信息
 		for _, v1 := range v {
 			ip := v1.IP
 			port := strconv.Itoa(v1.Port)
 			app := v1.App
 			machinename := v1.MachineName
-			blockqps := v1.BlockQps
-			fmt.Println(ip, app, machinename, blockqps)
-			ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, blockqps, ip, port, app, machinename)
+			fmt.Println("aaaaaaaaaaaaaaaaaaaaaa")
+			fmt.Println(v1)
+			fmt.Println("111111111111111111111111")
+			fmt.Println(v1.ResourceDetails)
+			//第三个循环取出resource里面的数据
+			for _, v2 := range v1.ResourceDetails {
+				resource := v2.Resource
+				blockqps := v2.PassQPS
+				fmt.Println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+				fmt.Printf("ip %s\t port %s\t machinename %s\t  app %s\t  r %s\t   s%d\t ", ip, port, machinename, app, resource, blockqps)
+				ch <- prometheus.MustNewConstMetric(collect.blockMetric, prometheus.GaugeValue, blockqps, ip, port, app, machinename, resource)
+			}
 		}
 	}
 
 }
 func main() {
 	successqpsRegistry := newSuccessqpsCollector()
-	/*	passqpsRegistry := newPassqpsCollector()
-		blockqpsRegistry := newBlockqpsCollector()*/
-	//prometheus.MustRegister(successqpsRegistry, passqpsRegistry, blockqpsRegistry)
-	prometheus.MustRegister(successqpsRegistry)
+	passqpsRegistry := newPassqpsCollector()
+	blockqpsRegistry := newBlockqpsCollector()
+	prometheus.MustRegister(successqpsRegistry, passqpsRegistry, blockqpsRegistry)
 
 	http.Handle("/metrics", promhttp.Handler())
 	http.ListenAndServe(":18080", nil)
