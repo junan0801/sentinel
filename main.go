@@ -32,7 +32,12 @@ type resourceDetails struct {
 
 //定义获取数据函数
 func getMetric() (mp map[string][]Data) {
-	url := "http://g-sentinel-dashboard.tope365.com/custom/metric/get"
+	//domain := os.Getenv("domain")
+	domain := "http://g-sentinel-dashboard.tope365.com"
+
+	fmt.Println("qqqqqqqqqqqqqqqqqqqqq")
+	url := domain + "/custom/metric/get"
+	fmt.Println(url)
 	resp, _ := http.Get(url)
 	// 因为json 数据key 不固定,使用map 获取
 	dataMap := make(map[string][]Data)
@@ -46,20 +51,29 @@ func getMetric() (mp map[string][]Data) {
 }
 
 type successqpsCollector struct {
-	fooMetric *prometheus.Desc
+	successMetric *prometheus.Desc
+	passMetric    *prometheus.Desc
+	blockMetric   *prometheus.Desc
 }
 
-func newSuccessqpsCollector() *successqpsCollector {
-	m1 := make(map[string]string)
-	m1["env"] = "prod"
-	v := []string{"ip", "port", "app", "machineName", "interface"}
+func newqpsCollector() *successqpsCollector {
 	return &successqpsCollector{
-		fooMetric: prometheus.NewDesc("successqps", "successqps of app from sentinel", v, m1),
+		successMetric: prometheus.NewDesc(prometheus.BuildFQName("", "", "successqps"),
+			"help",
+			[]string{"ip", "port", "app", "machineName", "interface"}, nil),
+		passMetric: prometheus.NewDesc(prometheus.BuildFQName("", "", "passqps"),
+			"help",
+			[]string{"ip", "port", "app", "machineName", "interface"}, nil),
+		blockMetric: prometheus.NewDesc(prometheus.BuildFQName("", "", "blockqps"),
+			"help",
+			[]string{"ip", "port", "app", "machineName", "interface"}, nil),
 	}
 }
 
 func (collect *successqpsCollector) Describe(ch chan<- *prometheus.Desc) {
-	ch <- collect.fooMetric
+	ch <- collect.successMetric
+	ch <- collect.passMetric
+	ch <- collect.blockMetric
 }
 func (collect *successqpsCollector) Collect(ch chan<- prometheus.Metric) {
 	mp := getMetric()
@@ -71,23 +85,22 @@ func (collect *successqpsCollector) Collect(ch chan<- prometheus.Metric) {
 			port := strconv.Itoa(v1.Port)
 			app := v1.App
 			machinename := v1.MachineName
-			fmt.Println("aaaaaaaaaaaaaaaaaaaaaa")
-			fmt.Println(v1)
-			fmt.Println("111111111111111111111111")
-			fmt.Println(v1.ResourceDetails)
 			//第三个循环取出resource里面的数据
 			for _, v2 := range v1.ResourceDetails {
 				resource := v2.Resource
 				successqps := v2.SuccessQPS
-				fmt.Println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
-				fmt.Printf("ip %s\t port %s\t machinename %s\t  app %s\t  r %s\t   s%d\t ", ip, port, machinename, app, resource, successqps)
-				ch <- prometheus.MustNewConstMetric(collect.fooMetric, prometheus.GaugeValue, successqps, ip, port, app, machinename, resource)
+				blockqps := v2.BlockQPS
+				passqps := v2.PassQPS
+				fmt.Printf("ip %s\t port %s\t machinename %s\t  app %s\t  r %s\t   s%.2f\t ", ip, port, machinename, app, resource, successqps)
+				ch <- prometheus.MustNewConstMetric(collect.successMetric, prometheus.GaugeValue, successqps, ip, port, app, machinename, resource)
+				ch <- prometheus.MustNewConstMetric(collect.passMetric, prometheus.GaugeValue, passqps, ip, port, app, machinename, resource)
+				ch <- prometheus.MustNewConstMetric(collect.blockMetric, prometheus.GaugeValue, blockqps, ip, port, app, machinename, resource)
 			}
 		}
 	}
 }
 
-type passqpsCollector struct {
+/*type passqpsCollector struct {
 	passMetric *prometheus.Desc
 }
 
@@ -98,13 +111,13 @@ func newPassqpsCollector() *passqpsCollector {
 	return &passqpsCollector{
 		passMetric: prometheus.NewDesc("passqps", "passqps of app from sentinel", v, m1),
 	}
-}
+}*/
 
-func (collect *passqpsCollector) Describe(ch chan<- *prometheus.Desc) {
+/*func (collect *successqpsCollector) Describe(ch chan<- *prometheus.Desc) {
 	ch <- collect.passMetric
 }
 
-func (collect *passqpsCollector) Collect(ch chan<- prometheus.Metric) {
+func (collect *successqpsCollector) Collect(ch chan<- prometheus.Metric) {
 	//url := "http://g-sentinel-dashboard.tope365.com/custom/metric/get"
 	mp := getMetric()
 	for _, v := range mp {
@@ -114,16 +127,11 @@ func (collect *passqpsCollector) Collect(ch chan<- prometheus.Metric) {
 			port := strconv.Itoa(v1.Port)
 			app := v1.App
 			machinename := v1.MachineName
-			fmt.Println("aaaaaaaaaaaaaaaaaaaaaa")
-			fmt.Println(v1)
-			fmt.Println("111111111111111111111111")
-			fmt.Println(v1.ResourceDetails)
 			//第三个循环取出resource里面的数据
 			for _, v2 := range v1.ResourceDetails {
 				resource := v2.Resource
 				passqps := v2.PassQPS
-				fmt.Println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
-				fmt.Printf("ip %s\t port %s\t machinename %s\t  app %s\t  r %s\t   s%d\t ", ip, port, machinename, app, resource, passqps)
+				fmt.Printf("ip %s\t port %s\t machinename %s\t  app %s\t  resource %s\t   passqps%.2f\t ", ip, port, machinename, app, resource, passqps)
 				ch <- prometheus.MustNewConstMetric(collect.passMetric, prometheus.GaugeValue, passqps, ip, port, app, machinename, resource)
 			}
 		}
@@ -157,27 +165,27 @@ func (collect *blockqpsCollector) Collect(ch chan<- prometheus.Metric) {
 			port := strconv.Itoa(v1.Port)
 			app := v1.App
 			machinename := v1.MachineName
-			fmt.Println("aaaaaaaaaaaaaaaaaaaaaa")
-			fmt.Println(v1)
-			fmt.Println("111111111111111111111111")
-			fmt.Println(v1.ResourceDetails)
 			//第三个循环取出resource里面的数据
 			for _, v2 := range v1.ResourceDetails {
 				resource := v2.Resource
 				blockqps := v2.PassQPS
-				fmt.Println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
-				fmt.Printf("ip %s\t port %s\t machinename %s\t  app %s\t  r %s\t   s%d\t ", ip, port, machinename, app, resource, blockqps)
+				fmt.Printf("ip %s\t port %s\t machinename %s\t  app %s\t  resource %s\t   blockqps %.2f\t ", ip, port, machinename, app, resource, blockqps)
 				ch <- prometheus.MustNewConstMetric(collect.blockMetric, prometheus.GaugeValue, blockqps, ip, port, app, machinename, resource)
 			}
 		}
 	}
 
 }
+*/
+
 func main() {
-	successqpsRegistry := newSuccessqpsCollector()
-	passqpsRegistry := newPassqpsCollector()
-	blockqpsRegistry := newBlockqpsCollector()
-	prometheus.MustRegister(successqpsRegistry, passqpsRegistry, blockqpsRegistry)
+	//registry := prometheus.NewRegistry()
+	qpsRegistry := newqpsCollector()
+	//passqpsRegistry := newPassqpsCollector()
+	//blockqpsRegistry := newBlockqpsCollector()
+	//prometheus.MustRegister(successqpsRegistry, passqpsRegistry, blockqpsRegistry)
+	prometheus.MustRegister(qpsRegistry)
+	//registry.MustRegister(successqpsRegistry)
 
 	http.Handle("/metrics", promhttp.Handler())
 	http.ListenAndServe(":18080", nil)
