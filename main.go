@@ -45,21 +45,25 @@ func getMetric() (mp map[string][]Data) {
 }
 
 type successqpsCollector struct {
-	successMetric *prometheus.Desc
-	passMetric    *prometheus.Desc
-	blockMetric   *prometheus.Desc
+	successMetric   *prometheus.Desc
+	passMetric      *prometheus.Desc
+	blockMetric     *prometheus.Desc
+	exceptionMetric *prometheus.Desc
 }
 
 func qpsCollector() *successqpsCollector {
 	return &successqpsCollector{
 		successMetric: prometheus.NewDesc(prometheus.BuildFQName("", "", "successqps"),
-			"help",
+			"成功的qps",
 			[]string{"ip", "port", "app", "machineName", "interface"}, nil),
 		passMetric: prometheus.NewDesc(prometheus.BuildFQName("", "", "passqps"),
-			"help",
+			"通过的qps",
 			[]string{"ip", "port", "app", "machineName", "interface"}, nil),
 		blockMetric: prometheus.NewDesc(prometheus.BuildFQName("", "", "blockqps"),
-			"help",
+			"阻塞的qps",
+			[]string{"ip", "port", "app", "machineName", "interface"}, nil),
+		exceptionMetric: prometheus.NewDesc(prometheus.BuildFQName("", "", "exceptionqps"),
+			"异常的qps",
 			[]string{"ip", "port", "app", "machineName", "interface"}, nil),
 	}
 }
@@ -68,6 +72,7 @@ func (collect *successqpsCollector) Describe(ch chan<- *prometheus.Desc) {
 	ch <- collect.successMetric
 	ch <- collect.passMetric
 	ch <- collect.blockMetric
+	ch <- collect.exceptionMetric
 }
 func (collect *successqpsCollector) Collect(ch chan<- prometheus.Metric) {
 	mp := getMetric()
@@ -85,9 +90,11 @@ func (collect *successqpsCollector) Collect(ch chan<- prometheus.Metric) {
 				successqps := v2.SuccessQPS
 				blockqps := v2.BlockQPS
 				passqps := v2.PassQPS
+				exceptionqps := v2.ExceptionQPS
 				ch <- prometheus.MustNewConstMetric(collect.successMetric, prometheus.GaugeValue, successqps, ip, port, app, machinename, resource)
 				ch <- prometheus.MustNewConstMetric(collect.passMetric, prometheus.GaugeValue, passqps, ip, port, app, machinename, resource)
 				ch <- prometheus.MustNewConstMetric(collect.blockMetric, prometheus.GaugeValue, blockqps, ip, port, app, machinename, resource)
+				ch <- prometheus.MustNewConstMetric(collect.exceptionMetric, prometheus.GaugeValue, exceptionqps, ip, port, app, machinename, resource)
 			}
 		}
 	}
